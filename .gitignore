@@ -1,0 +1,37 @@
+# git ignore file
+
+#########################################
+#             directories               #
+#########################################
+
+bin/
+Bin/
+obj/
+_ReSharper*/
+logFiles/
+temp/
+
+#########################################
+#                files                  #
+#########################################
+
+*.suo 
+*.pidb
+*.*.resources
+*.*.suo
+*.resharper 
+*.user 
+_ReSharper.* 
+StyleCop.Cache
+*.cache
+*.user
+*.userprefs
+*.*.userprefs
+*.log
+*.docstates
+
+
+#########################################
+#             repo-specific             #
+#########################################
+
