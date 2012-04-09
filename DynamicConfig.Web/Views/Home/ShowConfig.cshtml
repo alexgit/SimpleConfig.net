@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+
+    <h2>Security Settings</h2>
+    <ul>
+        
+        <li><label>XYZ enabled:</label> <span></span></li> 
+        
+        <br/><br/>                     
+               
+        <li>
+            <ul>
+                <li><label>Car:</label> <span> @ViewBag.config.Car.make @ViewBag.config.Car.team </span></li>                
+                <li><label>Race type:</label> <span> @ViewBag.config.Car.RaceType.name  </span></li>                
+                
+                <li><label>Breaking balance front:</label> <span> @ViewBag.BreakingBalanceFront </span></li>
+                <li><label>Breaking balance rear:</label> <span> @ViewBag.BreakingBalanceRear </span></li>
+
+                <br />
+
+                <h5>Gearbox</h5>
+                <ul>
+                @foreach(var @gear in @ViewBag.config.Car.GearBox.Gears) {
+                    <li>Number: @gear.number - Top Speed: @gear.topSpeed km/h </li>
+                }
+                </ul>
+            </ul>
+        </li>        
+    </ul>    
+   
+</article>
+
+<aside>
+    <h3>Aside Title</h3>
+    <p>
+        Fusce facilisis ullamcorper consequat. Vestibulum non sapien lectus. Nam 
+        mi augue, posuere at tempus vel, dignissim vitae nulla.
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>

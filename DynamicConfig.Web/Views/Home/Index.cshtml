@@ -1,0 +1,109 @@
+@{
+    ViewBag.Title = "SimpleConfig";
+}
+
+@section featured {
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+            <h1>@ViewBag.Title.</h1>
+            <h2>@ViewBag.Message</h2>
+        </hgroup>
+        <p>
+            
+        </p>
+    </div>
+</section>
+}
+
+<style>
+pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+span.upperCase     
+{
+    font-weight: bold;
+    color: Blue;
+}
+span.lowerCase
+{
+    font-weight: bold;
+    color: Red;
+}
+span.valueCall
+{
+    font-weight: bold;
+    color: Green;
+}
+div.emp
+{
+    font-weight: bold;
+}
+</style>
+
+<h3>Start using in two seconds:</h3>
+
+<ol class="round">
+    <li class="one">
+        <h5>Add to your .config file</h5>
+               
+        <pre>
+            @ViewBag.example
+        </pre>
+        
+    </li>
+    <li class="two">
+        <h5> Start using it. No configuration classes, no code generation, no learning curve. Just start typing. </h5>
+
+        <pre>
+            <div class="emp">
+            var config = new SimpleConfig("mySection");
+
+            double breakingBalanceFront = config.<span class="upperCase">C</span>ar.<span class="upperCase">B</span>rakes.<span class="upperCase">B</span>alance.<span class="lowerCase">f</span>ront.<span class="valueCall">Value</span>;     // 0.5
+
+            string breakingPressureLevel = config.<span class="upperCase">C</span>ar.<span class="upperCase">B</span>rakes.<span class="upperCase">P</span>ressure.<span class="lowerCase">l</span>evel;         // "high"
+            
+            int rideHeightRear = config.<span class="upperCase">C</span>ar.<span class="upperCase">S</span>uspension.<span class="upperCase">R</span>ideHeight.<span class="lowerCase">r</span>ear.<span class="valueCall">Value</span>;        // 2
+
+            </div>
+        </pre>               
+    </li>   
+    <li class="three">
+        <h5> That's it. You're done. </h5>
+        Easy isn't it?       
+    </li>     
+</ol>
+
+<section class="features">
+    <section class="feature">
+        <img src="~/Images/aspNetHome.png" alt="" />
+        <h3>Feature 1</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo...
+        </p>
+    </section>
+    <section class="feature">
+        <img src="~/Images/NuGetGallery.png" alt="" />
+        <h3>Feature 2</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo...
+        </p>
+    </section>
+    <section class="feature">
+        <img src="~/Images/findHosting.png" alt="" />
+        <h3>Feature 3</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo...
+        </p>
+    </section>
+</section>
