@@ -41,6 +41,7 @@ namespace DynamicConfig.Web.Controllers
 
             double breakingBalanceFront = Config.Car.Braking.Balance.front.Value;
             double breakingBalanceRear = Config.Car.Braking.Balance.rear.Value;
+            string breakingPressureLevel = Config.Car.Braking.Pressure.level.Value;
 
             ViewBag.BreakingBalanceFront = breakingBalanceFront;
             ViewBag.BreakingBalanceRear = breakingBalanceRear;

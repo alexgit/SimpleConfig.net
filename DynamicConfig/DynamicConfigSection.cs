@@ -57,6 +57,11 @@ namespace DynamicConfig
             pluralChecker = pc;
         }
 
+        public dynamic Value 
+        {
+            get { return new DynamicAttribute(xmlNode.InnerText).Value; }
+        }
+
         private IEnumerable<DynamicConfigSection> GetChildren()
         {
             foreach (XmlNode n in xmlNode.ChildNodes)
