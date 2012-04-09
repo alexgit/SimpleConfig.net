@@ -40,7 +40,7 @@ namespace DynamicConfig.Web
 
         protected void Application_Start()
         {
-            config = new DynamicConfiguration("mySection");
+            config = new SimpleConfig("mySection");
             this.Context.Application["config"] = config;
 
             AreaRegistration.RegisterAllAreas();
