@@ -8,5 +8,7 @@ namespace DynamicConfig
     public interface IXmlDeserializer
     {
         T Deserialize<T>(string xml);
+
+        dynamic Deserialize(string xml, Type type);
     }
 }

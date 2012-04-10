@@ -5,6 +5,7 @@ using System.Text;
 using System.Dynamic;
 using System.Configuration;
 using System.Xml;
+using System.Reflection;
 
 namespace DynamicConfig
 {
@@ -13,6 +14,7 @@ namespace DynamicConfig
         private XmlNode xmlNode;
         private static IXmlDeserializer xmlDeserializer = new DefaultXmlDeserializer();
         private static IPluralChecker pluralChecker = new DefaultPluralChecker();
+        private static Assembly assemblyWithConfigTypes;
 
         private const string xmlHeaderTag = @"<?xml version=""1.0"" encoding=""utf-8""?>";
         
@@ -26,19 +28,21 @@ namespace DynamicConfig
             var name = binder.Name;
             if (char.IsUpper(name[0]))
             {
+                var subSection = GetSection(name);
                 if (IsCollection(name)) 
-                { 
-                    result = GetSection(name).GetChildren(); 
+                {
+                    result = subSection.GetChildren();
                 } 
                 else 
-                { 
-                    result = GetSection(name); 
-                } 
+                {
+                    result = subSection;
+                }
             }
             else 
             {
                 result = GetAttribute(name);
             } 
+
             return true;
         }        
 
@@ -57,9 +61,36 @@ namespace DynamicConfig
             pluralChecker = pc;
         }
 
+        public void SetAssemblyWithConfigTypes(Assembly assembly)
+        {
+            assemblyWithConfigTypes = assembly;
+        }
+
         public dynamic Value 
         {
-            get { return new DynamicAttribute(xmlNode.InnerText).Value; }
+            get
+            {
+                if(xmlNode.HasChildNodes)
+                {
+                    var typeToUse = GetTypeWithName(xmlNode.Name);
+
+                    if (typeToUse == null)
+                    {
+                        throw new ArgumentException(string.Format("Could not find a type with name {0} in assembly {1} to use to deserialize the xml element to.",
+                            xmlNode.Name, assemblyWithConfigTypes.FullName));
+                    }
+
+                    return xmlDeserializer.Deserialize(xmlHeaderTag + xmlNode.OuterXml, typeToUse);
+                }
+
+                return new DynamicAttribute(xmlNode.InnerText).Value;
+            }
+        }
+
+        private Type GetTypeWithName(string xmlNodeName)
+        {
+            return assemblyWithConfigTypes.GetTypes()
+                .FirstOrDefault(type => string.Compare(type.Name, xmlNodeName, ignoreCase: true) == 0);
         }
 
         private IEnumerable<DynamicConfigSection> GetChildren()
@@ -110,7 +141,7 @@ namespace DynamicConfig
             XmlNode found = null;
             foreach (XmlNode node in xmlNode.ChildNodes)
             {
-                if (string.Compare(node.Name, elementName, StringComparison.InvariantCultureIgnoreCase) == 0)
+                if (string.Compare(node.Name, elementName, ignoreCase: true) == 0)
                 {
                     found = node;
                     break;
@@ -127,7 +158,7 @@ namespace DynamicConfig
             return new DynamicAttribute(stringValue);
         }
 
-        private string GetStringValue(string attributeName) 
+        private string GetStringValue(string attributeName)
         {
             var attribute = xmlNode.Attributes[attributeName];
 

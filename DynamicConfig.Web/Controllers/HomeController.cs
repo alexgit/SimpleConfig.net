@@ -35,7 +35,7 @@ namespace DynamicConfig.Web.Controllers
         {
             Easy();
 
-            AccessSettings accessSettings = Config.ClientAccess.As<AccessSettings>();
+            ClientAccess accessSettings = Config.ClientAccess.Value;
 
             ViewBag.ClientAccessSettings = accessSettings;
 

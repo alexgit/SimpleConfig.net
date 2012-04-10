@@ -8,7 +8,7 @@ namespace DynamicConfig.Web
 {
     [Serializable]
     [XmlRoot(ElementName = "clientAccess")]
-    public class AccessSettings
+    public class ClientAccess
     {
         [XmlElement("directorate")]
         public DirectorateSettings Directorate { get; set; }
@@ -55,12 +55,5 @@ namespace DynamicConfig.Web
     {
         [XmlAttribute("teamSecurity")]
         public bool TeamSecurity { get; set; }
-    }
-
-    [Serializable]
-    public class EditAfterDischargeSettings
-    {
-        [XmlAttribute("requireEditDischargedEpisodeRole")]
-        public bool RequireEditDischargedEpisodeRole { get; set; }
-    }
+    }    
 }

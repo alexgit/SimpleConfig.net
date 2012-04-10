@@ -15,5 +15,11 @@ namespace DynamicConfig
             var xmlReader = XmlReader.Create(new StringReader(xml));
             return (T)new XmlSerializer(typeof(T)).Deserialize(xmlReader);
         }
+
+        public object Deserialize(string xml, Type type) 
+        {
+            var xmlReader = XmlReader.Create(new StringReader(xml));
+            return new XmlSerializer(type).Deserialize(xmlReader);
+        }
     }
 }
