@@ -76,8 +76,7 @@ namespace DynamicConfig
 
                     if (typeToUse == null)
                     {
-                        throw new ArgumentException(string.Format("Could not find a type with name {0} in assembly {1} to use to deserialize the xml element to.",
-                            xmlNode.Name, assemblyWithConfigTypes.FullName));
+                        return xmlNode.InnerText;
                     }
 
                     return xmlDeserializer.Deserialize(xmlHeaderTag + xmlNode.OuterXml, typeToUse);
