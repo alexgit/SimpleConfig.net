@@ -27,17 +27,20 @@
         </ul>
       </header>
       <section>
-        <h2>Start using in two seconds:</h2>
+        <h2>Start using in less than a minute</h2>
 
-<h3>1. Add to your .config file</h3>
+<h3>1. Add a reference to the DynamicConfig.dll</h3>
+
+<pre>No other dependencies</pre>
+
+<h3>2. Add a new config section to your web.config file</h3>
 
 <div class="highlight">
-<pre>  <span class="nt">&lt;configSections&gt;</span>                
-    <span class="nt">&lt;section</span> <span class="na">name=</span><span class="s">"mySection"</span> 
+<pre>  <span class="nt">&lt;configSections&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">name=</span><span class="s">"mySection"</span>
                 <span class="na">type=</span><span class="s">"DynamicConfig.DynamicConfigSectionHandler"</span> <span class="nt">/&gt;</span>
-    ...
   <span class="nt">&lt;/configSections&gt;</span>
-  ...
+
   <span class="nt">&lt;mySection&gt;</span>
     <span class="nt">&lt;car</span> <span class="na">make=</span><span class="s">"BMW"</span> <span class="na">team=</span><span class="s">"Sauber"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;raceType</span> <span class="na">name=</span><span class="s">"F1 Gran Prix"</span> <span class="nt">/&gt;</span>
@@ -50,33 +53,33 @@
       <span class="nt">&lt;suspension&gt;</span>
         <span class="nt">&lt;rideHeight</span> <span class="na">front=</span><span class="s">"2"</span> <span class="na">rear=</span><span class="s">"2"</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;springStiffness</span> <span class="na">front=</span><span class="s">"5"</span> <span class="na">rear=</span><span class="s">"7"</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;/suspension&gt;</span>                  
-        ...                   
+      <span class="nt">&lt;/suspension&gt;</span>
+      ...
     <span class="nt">&lt;/car&gt;</span>
   <span class="nt">&lt;/mySection&gt;</span>
 </pre>
 </div>
 
 
-<h3>2.    Start using it - no additional code needed</h3>
+<h3>3. Start using it</h3>
 
 <div class="highlight">
-<pre> <span class="kt">var</span> <span class="n">config</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SimpleConfig</span><span class="p">(</span><span class="s">"mySection"</span><span class="p">);</span>
+<pre> <span class="kt">dynamic</span> <span class="n">config</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SimpleConfig</span><span class="p">(</span><span class="s">"mySection"</span><span class="p">);</span>
 
  <span class="c1">// 0.5</span>
- <span class="kt">double</span> <span class="n">breakingBalanceFront</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">Car</span><span class="p">.</span><span class="n">Brakes</span><span class="p">.</span><span class="n">Balance</span><span class="p">.</span><span class="n">front</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span> 
+ <span class="kt">double</span> <span class="n">breakingBalanceFront</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">Car</span><span class="p">.</span><span class="n">Brakes</span><span class="p">.</span><span class="n">Balance</span><span class="p">.</span><span class="n">front</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
 
  <span class="c1">// "high"        </span>
- <span class="kt">string</span> <span class="n">breakingPressureLevel</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">Car</span><span class="p">.</span><span class="n">Brakes</span><span class="p">.</span><span class="n">Pressure</span><span class="p">.</span><span class="n">level</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>     
+ <span class="kt">string</span> <span class="n">breakingPressureLevel</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">Car</span><span class="p">.</span><span class="n">Brakes</span><span class="p">.</span><span class="n">Pressure</span><span class="p">.</span><span class="n">level</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
 
  <span class="c1">// 2</span>
- <span class="kt">int</span> <span class="n">rideHeightRear</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">Car</span><span class="p">.</span><span class="n">Suspension</span><span class="p">.</span><span class="n">RideHeight</span><span class="p">.</span><span class="n">rear</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>    
+ <span class="kt">int</span> <span class="n">rideHeightRear</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">Car</span><span class="p">.</span><span class="n">Suspension</span><span class="p">.</span><span class="n">RideHeight</span><span class="p">.</span><span class="n">rear</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
 
 </pre>
 </div>
 
 
-<h3>3. That's it. You're done.</h3>
+<h3>That's it. You're done.</h3>
 
 <ul>
 <li>
