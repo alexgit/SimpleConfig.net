@@ -130,7 +130,7 @@ namespace DynamicConfig
             XmlNode found = FirstChild(elementName);
 
             if (found == null)
-                throw new ArgumentException(string.Format("Subsection {0} does not exist under section {1}", elementName, xmlNode.Name));
+                throw new ElementNotFoundException(string.Format("Subsection {0} does not exist under section {1}", elementName, xmlNode.Name));
 
             return new DynamicConfigSection(found);
         }
@@ -162,7 +162,7 @@ namespace DynamicConfig
             var attribute = xmlNode.Attributes[attributeName];
 
             if (attribute == null)
-                throw new ArgumentException(string.Format("Attribute {0} does not exist in element {1}", attributeName, xmlNode.Name));
+                throw new AttributeNotFoundException(string.Format("Attribute {0} does not exist in element {1}", attributeName, xmlNode.Name));
 
             return attribute.Value;
         }        
