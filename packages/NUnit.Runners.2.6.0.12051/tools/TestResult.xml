@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\projects\csharp\dynamicconfig\DynamicConfig.Tests\bin\Debug\DynamicConfig.Tests.dll" total="5" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-04-21" time="21:12:31">
+  <environment nunit-version="2.6.0.12051" clr-version="2.0.50727.5420" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="E:\projects\csharp\dynamicconfig\packages\NUnit.Runners.2.6.0.12051\tools" machine-name="7C8" user="alex" user-domain="7c8" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="E:\projects\csharp\dynamicconfig\DynamicConfig.Tests\bin\Debug\DynamicConfig.Tests.dll" executed="True" result="Success" success="True" time="1.433" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="DynamicConfig" executed="True" result="Success" success="True" time="1.414" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="1.414" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="Tests" executed="True" result="Success" success="True" time="1.412" asserts="0">
+                <results>
+                  <test-case name="DynamicConfig.Tests.Tests.Check_node_exists" executed="True" result="Success" success="True" time="1.351" asserts="1" />
+                  <test-case name="DynamicConfig.Tests.Tests.Constcuts" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                  <test-case name="DynamicConfig.Tests.Tests.Does_not_throw_argument_not_found_exception_when_attribute_exists" executed="True" result="Success" success="True" time="0.017" asserts="0" />
+                  <test-case name="DynamicConfig.Tests.Tests.Throws_attribute_not_found_exception_when_no_matching_attribute_exists" executed="True" result="Success" success="True" time="0.007" asserts="1" />
+                  <test-case name="DynamicConfig.Tests.Tests.Throws_element_not_found_exception_when_no_matching_element_exists" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -19,7 +19,7 @@ namespace DynamicConfig
         }
 
         public DynamicConfiguration(string sectionName, Assembly configuringAssembly, IXmlDeserializer xmlDeserializer) : this(sectionName, configuringAssembly)
-        {            
+        {
             config.SetDeserializer(xmlDeserializer);
         }
 
